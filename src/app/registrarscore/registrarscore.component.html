@@ -1,0 +1,25 @@
+
+
+<br>
+<br>
+<br>
+<br>
+<div style="text-align:center">
+    <mat-card>
+        <label style="font-size: 30px;">¿Cuán probable es que recomiende el producto o servicio a un familiar o amigo?</label>
+    </mat-card> 
+    
+    
+    
+    <mat-card>
+        <mat-slider [min]=0 [max]="10" [step]="1" [value]="1" [(ngModel)]="puntaje" style="width: 600px;" thumbLabel></mat-slider>
+    </mat-card> 
+    
+    <mat-card>
+        <button type="button" class="btn btn-primary btn-block mb-4" (click)="registrarCalificacion();">Registrar</button>
+    </mat-card> 
+    
+    <div *ngIf="hayError" class="w3-panel w3-green">{{ msjError }}</div>
+</div>
+
+

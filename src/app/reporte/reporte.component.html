@@ -1,0 +1,69 @@
+
+<br>
+<label style="font-size: 30px;">CANTIDAD PROMOTORES: {{ CantidadPromotores }}</label><br>
+<label style="font-size: 30px;">CANTIDAD DETRACTORES: {{ CantidadDetractores }}</label><br>
+<label style="font-size: 30px;">CANTIDAD ENCUESTADOS: {{ CantidadEncuestados }}</label><br><br>
+<label style="font-size: 30px;">NET PROMOTER SCORE: {{ NPS }}</label><br><br>
+
+
+<div class="row">
+    <div class="col">
+        <!-- <app-pais-tabla [paises]="paises"></app-pais-tabla> -->
+        <table mat-table [dataSource]="calificaciones" class="mat-elevation-z8">
+
+          <!--- Note that these columns can be defined in any order.
+                The actual rendered columns are set as a property on the row definition" -->
+    
+      
+          <!-- Nombre -->
+          <ng-container matColumnDef="Usuario">
+            <th mat-header-cell *matHeaderCellDef> Usuario </th>
+            <td mat-cell *matCellDef="let element"> {{ element.usuario }} </td>
+          </ng-container>
+          
+          <!-- Poblacion -->
+          <ng-container matColumnDef="Clasificacion">
+            <th mat-header-cell *matHeaderCellDef> Clasificación </th>
+            <td mat-cell *matCellDef="let element"> {{ element.clasificacion }} </td>
+          </ng-container>
+        
+          <!-- Poblacion -->
+          <ng-container matColumnDef="Valor_Calificacion">
+            <th mat-header-cell *matHeaderCellDef> Valor Calificación </th>
+            <td mat-cell *matCellDef="let element"> {{ element.valor_Calificacion }} </td>
+          </ng-container>
+    
+          <ng-container matColumnDef="Estado">
+            <th mat-header-cell *matHeaderCellDef> Estado </th>
+            <td mat-cell *matCellDef="let element"> {{ element.estado }} </td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+    </div>
+</div>
+
+<br>
+<button type="button" class="btn btn-primary btn-block mb-4" (click)="salir();">Salir</button>
+<!-- 
+
+<table class="table tble-hover">
+    <thead>
+        <tr>
+            <td>#</td>
+            <td>Usuario</td>
+            <td>Clasificación</td>
+            <td>Valor Calificación</td>
+            <td></td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let cali of calificaciones; let i = index">
+            <td>{{ i + 1}}</td>
+            <td>{{ cali.Usuario }}</td>
+            <td>{{ cali.Clasificacion }}</td>
+            <td>{{ cali.Valor_Calificacion | number }}</td>
+        </tr>
+    </tbody>
+</table> -->
